@@ -18,39 +18,43 @@ function CreateNote() {
 				[name]: value,
 			}
 		})
+		setError("")
 	}
 
 	const handleClick = async (e) => {
 		e.preventDefault()
-		const newNote = {
-			name: input.title,
-			email: input.content,
-			age: "25",
-		}
-		console.log(newNote)
-		const response = await fetch("http://localhost:5000/user", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(newNote),
-		})
-		const result = await response.json()
-		if (!response.ok) {
-			console.error(result.error)
-			setError(result.error)
-		}
-		if (response.ok) {
-			console.log(result)
-			navigate("/notes")
-			setError("")
+		if (!input.title || !input.content) {
+			setError("Please fill both: title and content")
+		} else {
+			const newNote = {
+				title: input.title,
+				content: input.content,
+			}
+			console.log(newNote)
+			const response = await fetch("http://localhost:5000/user", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newNote),
+			})
+			const result = await response.json()
+			if (!response.ok) {
+				console.error(result.error)
+				setError(result.error)
+			}
+			if (response.ok) {
+				console.log(result)
+				navigate("/notes")
+				setError("")
+			}
 		}
 	}
 
 	return (
 		<div className='container'>
 			<h1>Create Notes</h1>
-			{error && <div class='alert alert-danger'> {error} </div>}
+			{error && <div className='alert alert-danger'> {error} </div>}
 
 			<form>
 				<div className='form-group' style={{ marginBottom: "10px" }}>

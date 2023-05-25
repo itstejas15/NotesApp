@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 function Notes() {
 	const [data, setData] = useState([])
-	console.log("result..", data)
 	async function getData() {
 		const response = await fetch("http://localhost:5000/users")
 		const result = await response.json()
@@ -11,7 +10,6 @@ function Notes() {
 			console.log(result.error)
 		}
 		if (response.ok) {
-			console.log(response.ok)
 			setData(result)
 		}
 	}
@@ -37,23 +35,23 @@ function Notes() {
 
 	return (
 		<div className='container' style={{ padding: "15px" }}>
-			<div className='row gap-3'>
+			<div className='row gap-3 ms-xl-5'>
 				{data?.map((ele) => (
-					<div key={ele._id} className='col-3 my-2 mx-4'>
-						<div className='card' style={{ width: "18rem", height: "12rem" }}>
+					<div key={ele._id} className='col-10 col-md-5 col-xl-3 mb-3 mb-sm-0'>
+						<div className='card'>
 							<div className='card-body'>
 								<h5 className='card-title'>
 									{/* Note title */}
-									{ele?.name}
+									{ele?.title}
 								</h5>
 								<p className='card-text'>
 									{/* Some quick example text to build on the card title and make up the bulk of the card's content. */}
-									{ele?.email}
+									{ele?.content}
 								</p>
-								<Link to='#' className='card-link' onClick={() => handleDelete(ele?._id)}>
+								<Link to='#' className='card-link btn btn-danger btn-sm' onClick={() => handleDelete(ele?._id)}>
 									Delete
 								</Link>
-								<Link to={`/update/${ele._id}`} className='card-link'>
+								<Link to={`/update/${ele._id}`} className='card-link btn btn-info btn-sm'>
 									Edit
 								</Link>
 							</div>

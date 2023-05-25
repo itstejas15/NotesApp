@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Notes from "./components/Notes";
 import CreateNote from "./components/CreateNote";
 import UpdateNote from "./components/UpdateNote";
+import NotFound from "./components/404";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/notes" element={<Notes />} />
           <Route path="/create" element={<CreateNote />} />
           <Route path="/update/:id" element={<UpdateNote />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
