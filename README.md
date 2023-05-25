@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- check .env variales and mongodb credential URL -->
+<!-- Then start the backend server by typing "npm run dev" in terminal -->
+<!-- Then start frontend bt typing "npm start" -->
+<!-- Reference Articles -->
+<!-- https://whataboutcoding.com/build-a-simple-mern-stack-application -->
