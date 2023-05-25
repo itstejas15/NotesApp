@@ -5,16 +5,22 @@ function Navbar() {
 	return (
 		<nav className='navbar bg-dark container'>
 			<h4>
-				<Link to='/notes' className="link mx-4">Notes</Link>Notes
+				<Link to='/notes' className='link mx-4'>
+					All Notes
+				</Link>
 			</h4>
 			<h4>
-				<Link to='/create' className="link">Create Note</Link>Create Note
+				<Link to='/create' className='link'>
+					Create Notes
+				</Link>
 			</h4>
 			<h4>
-				<Link to='/' className="link mx-4">Home</Link>
+				<Link to='/' className='link mx-4'>
+					Home
+				</Link>
 			</h4>
 		</nav>
 	)
 }
 
-export default Navbar;
+export default Navbar
