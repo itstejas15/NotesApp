@@ -53,7 +53,7 @@ function Notes() {
 								<Link to='#' className='card-link' onClick={() => handleDelete(ele?._id)}>
 									Delete
 								</Link>
-								<Link to={`/${ele._id}`} className='card-link'>
+								<Link to={`/update/${ele._id}`} className='card-link'>
 									Edit
 								</Link>
 							</div>
