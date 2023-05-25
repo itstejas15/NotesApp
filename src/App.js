@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/create" element={<CreateNote />} />
-          <Route path="/:id" element={<UpdateNote />} />
+          <Route path="/update/:id" element={<UpdateNote />} />
         </Routes>
       </BrowserRouter>
     </>
