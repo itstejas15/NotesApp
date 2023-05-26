@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Notes() {
 	const [data, setData] = useState([])
 	async function getData() {
-		const response = await fetch("http://localhost:5000/users")
+		const response = await fetch("https://notes-app-backend-black.vercel.app/users")
 		const result = await response.json()
 		if (!response.ok) {
 			console.log(result.error)
@@ -18,7 +18,7 @@ function Notes() {
 	}, [])
 
 	async function handleDelete(id) {
-		const response = await fetch(`http://localhost:5000/userdelete/${id}`, {
+		const response = await fetch(`https://notes-app-backend-black.vercel.app/userdelete/${id}`, {
 			method: "DELETE",
 		})
 		const result1 = await response.json()
