@@ -31,7 +31,7 @@ function CreateNote() {
 				content: input.content,
 			}
 			console.log(newNote)
-			const response = await fetch("http://localhost:5000/user", {
+			const response = await fetch("https://notes-app-backend-black.vercel.app/user", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

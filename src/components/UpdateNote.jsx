@@ -32,7 +32,7 @@ const UpdateNote = () => {
 			title: input.title,
 			content: input.content,
 		}
-		const response = await fetch(`http://localhost:5000/userupdate/${id}`, {
+		const response = await fetch(`https://notes-app-backend-black.vercel.app/userupdate/${id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
@@ -52,7 +52,7 @@ const UpdateNote = () => {
 	}
 
 	async function getSingleNote() {
-		const response = await fetch(`http://localhost:5000/users/${id}`)
+		const response = await fetch(`https://notes-app-backend-black.vercel.app/users/${id}`)
 		const result = await response.json()
 		if (!response.ok) {
 			setError(result.error)
