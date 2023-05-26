@@ -6,7 +6,6 @@ dotenv.config();
 const cors = require("cors");
 
 app.use(cors());
-// const User = require("./models/userModel")
 
 const userRouter = require("./router/userRoute")
 
