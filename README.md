@@ -74,11 +74,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <!-- Then start the backend server by typing "cd backend" enter, then "npm run dev" in terminal -->
 <!-- Then start frontend in new terminal by typing "npm start" -->
 <!-- Reference Articles -->
-<!-- https://whataboutcoding.com/build-a-simple-mern-stack-application -->
+<!-- [https://whataboutcoding.com/build-a-simple-mern-stack-application] -->
 
-<!-- To deploy backend -->
+<!-- Other ways to run backend on local -->
+<!-- npx nodemon server.js -->
+<!-- nod server.js -->
+
+<!-- To deploy backend on vercel-->
 <!-- 1] Add vercel.json file in backend folder -->
 <!-- 2]  -->
 
 <!-- To Deploy frontend after backend-->
-<!-- Change Backend api URLs in frontend api calls -->
+<!-- Change backend api endpoint URLs in frontend api calls -->
