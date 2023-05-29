@@ -76,13 +76,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <!-- Reference Articles -->
 <!-- [https://whataboutcoding.com/build-a-simple-mern-stack-application] -->
 
-<!-- Other ways to run backend on local -->
+<!-- # Other ways to run backend on local -->
 <!-- npx nodemon server.js -->
-<!-- nod server.js -->
+<!-- node server.js -->
 
-<!-- To deploy backend on vercel-->
+<!-- # To remove node_modules -->
+<!-- npx rimraf node_modules -->
+<!-- npm install rimraf --global     ....(if u dont had rimraf)-->
+
+<!-- # To run backend and frontend in the same terminal -->
+<!-- 1] npm i concurrently --save-dev -->
+<!-- 2] "dev": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"", -->
+<!-- 3] npm run dev -->
+
+<!-- # To deploy backend on vercel-->
 <!-- 1] Add vercel.json file in backend folder -->
-<!-- 2]  -->
+<!-- 2] add .env variables on vercel while deployment -->
 
-<!-- To Deploy frontend after backend-->
+<!-- # To Deploy frontend after backend-->
 <!-- Change backend api endpoint URLs in frontend api calls -->
