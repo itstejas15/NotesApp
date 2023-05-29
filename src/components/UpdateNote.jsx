@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
 const UpdateNote = () => {
-	const [input, setUInput] = useState({
+	const [input, setInput] = useState({
 		title: "",
 		content: "",
 	})
@@ -14,7 +14,7 @@ const UpdateNote = () => {
 
 	function handleChange(e) {
 		const { name, value } = e.target
-		setUInput((prevInput) => {
+		setInput((prevInput) => {
 			return {
 				...prevInput,
 				[name]: value,
@@ -28,27 +28,25 @@ const UpdateNote = () => {
 		if (!input.title || !input.content) {
 			setError("title and content can not be empty")
 		} else {
-		const newNote = {
-			title: input.title,
-			content: input.content,
+			const newNote = {
+				title: input.title,
+				content: input.content,
+			}
+			const response = await fetch(`https://notes-app-backend-black.vercel.app/userupdate/${id}`, {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newNote),
+			})
+			const result = await response.json()
+			if (response.ok) {
+				navigate("/notes")
+			} else {
+				console.log(result)
+				setError(result.error)
+			}
 		}
-		const response = await fetch(`https://notes-app-backend-black.vercel.app/userupdate/${id}`, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(newNote),
-		})
-		const result = await response.json()
-		if (!response.ok) {
-			console.log(result)
-			setError(result.error)
-		}
-		if (response.ok) {
-			navigate("/notes")
-			setError("")
-		}
-	}
 	}
 
 	async function getSingleNote() {
@@ -58,7 +56,7 @@ const UpdateNote = () => {
 			setError(result.error)
 		}
 		if (response.ok) {
-			setUInput({ title: result.title, content: result.content })
+			setInput({ title: result.title, content: result.content })
 		}
 	}
 

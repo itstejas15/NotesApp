@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 function CreateNote() {
-	const [input, setUInput] = useState({
+	const [input, setInput] = useState({
 		title: "",
 		content: "",
 	})
@@ -12,7 +12,7 @@ function CreateNote() {
 	function handleChange(e) {
 		const { name, value } = e.target
 
-		setUInput((prevInput) => {
+		setInput((prevInput) => {
 			return {
 				...prevInput,
 				[name]: value,
@@ -30,7 +30,6 @@ function CreateNote() {
 				title: input.title,
 				content: input.content,
 			}
-			console.log(newNote)
 			const response = await fetch("https://notes-app-backend-black.vercel.app/user", {
 				method: "POST",
 				headers: {
@@ -39,14 +38,11 @@ function CreateNote() {
 				body: JSON.stringify(newNote),
 			})
 			const result = await response.json()
-			if (!response.ok) {
-				console.error(result.error)
-				setError(result.error)
-			}
 			if (response.ok) {
-				console.log(result)
 				navigate("/notes")
-				setError("")
+			} else {
+				console.log(result)
+				setError(result.error)
 			}
 		}
 	}

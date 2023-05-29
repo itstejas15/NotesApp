@@ -11,10 +11,18 @@ function Notes() {
 		}
 		if (response.ok) {
 			setData(result)
+			// to make data load faster
+			localStorage.setItem("cards", JSON.stringify(result))
 		}
 	}
+	const cards = localStorage.getItem("cards")
+	// let cards = JSON.parse(obj)
 	useEffect(() => {
-		getData()
+		if (cards) {
+			setData(JSON.parse(cards))
+			getData()
+		} else getData()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	async function handleDelete(id) {
